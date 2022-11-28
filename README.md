@@ -1,57 +1,70 @@
-### Objective
+# Getting Started with Create React App
 
-Using JavaScript or TypeScript and React, your task is to build a Github User Search Tool.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Brief
+## Available Scripts
 
-In this challenge, your assignment is to build a Github User Search Tool using the [GitHub users API](https://docs.github.com/en/rest/reference/users#get-a-user). We are looking for a solution that is functionally complete, not pixel-perfect. The design system in the designs folder will give you more information about the various colors, fonts, and styles used in this project.
+In the project directory, you can run:
 
-### Time Limit
+### `npm start`
 
-Please limit the time spent on this assignment to no more than 4 hours. Full-completion is not one
-of our success criteria. We recommend you work iteratively so you can submit whatever you have
-completed when you've reached 4 hours.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-We recognize your time is valuable and we also want to level the field for all candidates to
-succeed. If you are not able to complete this assignment due to time, please talk to us so
-we can accommodate your needs.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### Tasks
+### `npm test`
 
-Your users should be able to:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-    - Search for GitHub users by their username
-    - See relevant user information based on their search
+### `npm run build`
 
-Implement assignment using:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-    - Language: **JavaScript or TypeScript**
-    - Framework: **React**
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Expected Behaviour
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
--   On the first load, show the profile information for Octocat (or your own Github username 😎).
--   Display an error message if no user is found when a new search is made.
--   If a GitHub user hasn't added their name, show their username where the name would be without the `@` symbol and again below with the `@` symbol.
--   If a GitHub user's bio is empty, show the text "This profile has no bio" with transparency added. The lorem ipsum text in the designs shows how the bio should look when it is present.
--   If any of the location, website, Twitter, or company properties are empty, show the text "Not Available" with transparency added
--   Website, Twitter, and company information should all be links to those resources. For the company link, it should remove the `@` symbol and link to the company page on GitHub. For Octocat, with `@github` being returned for the company, this would lead to a URL of `https://github.com/github`.
+### `npm run eject`
 
-### Evaluation Criteria
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
--   **JavaScript or TypeScript** best practices
--   Working iteratively. Show us your work through your commit history
--   We're looking for you to produce working code, with enough room to demonstrate how to structure components in a small program
--   Prioritization: Where did you choose to spend your time on this assignment and why?
--   Completeness: Did you complete the features?
--   Correctness: Does the functionality act in sensible, thought-out ways?
--   Maintainability: Is it written in a clean, maintainable way?
--   Testing: Is the system adequately tested?
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### CodeSubmit
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-Please organize, design, test, and document your code as if it were going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-All the best and happy coding,
+## Learn More
 
-The Terawatt Infrastructure Team
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
