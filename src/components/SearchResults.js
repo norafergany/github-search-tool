@@ -4,7 +4,7 @@ import {Col, Row} from "react-bootstrap";
 const SearchResults = () => {
     return (
         <>
-            <Row>
+            <Row className="search-results">
                 <Col>
 
                 </Col>

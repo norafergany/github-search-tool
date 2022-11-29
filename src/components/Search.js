@@ -5,7 +5,7 @@ const Search = () => {
 
     return (
         <>
-            <Row>
+            <Row className="search">
                 <Col>
 
                 </Col>

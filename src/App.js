@@ -8,7 +8,7 @@ import SearchResults from "./components/SearchResults";
 function App() {
     return (
         <>
-            <Container>
+            <Container className="base-container">
                 <Navigation/>
                 <Search/>
                 <SearchResults/>
