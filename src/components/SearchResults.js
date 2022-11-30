@@ -82,25 +82,25 @@ const SearchResults = (props) => {
                     <Row className="mx-2 gy-2">
                         <Col>
                             <div>
-                                <LocationIcon/>
+                                <LocationIcon className="info-icon"/>
                                 <span data-testid="location">
                                     {profile.location ?? "Not Available"}}
                                 </span>
                             </div>
                             <div data-testid="blog">
-                                <WebsiteIcon/>
+                                <WebsiteIcon className="info-icon"/>
                                 {profile.blog ? <a rel="noreferrer" target="_blank"
                                                    href={profile.blog}>{profile.blog}</a> : "Not Available"}
                             </div>
                         </Col>
                         <Col>
                             <div>
-                                <TwitterIcon/>
+                                <TwitterIcon className="info-icon"/>
                                 {profile.twitter_username ? <a target="_blank" rel="noreferrer"
                                                                href={profile.twitterURL}>{profile.twitter_username}</a> : "Not Available"}
                             </div>
                             <div>
-                                <CompanyIcon/>
+                                <CompanyIcon className="info-icon"/>
                                 {profile.company ? <a target="_blank" rel="noreferrer"
                                                       href={profile.companyURL}>{profile.company}</a> : "Not Available"}
                             </div>
