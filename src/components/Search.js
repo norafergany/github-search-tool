@@ -4,28 +4,59 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import {useForm} from "react-hook-form";
 import SearchResults from "./SearchResults";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {ReactComponent as SearchIcon} from '../assets/icon-search.svg';
+import {getProfile} from "../api/API";
 
 
 const Search = () => {
     const [username, setUsername] = useState("norafergany");
 
-    const {register, handleSubmit, watch, formState: {errors}} = useForm({reValidateMode: "onSubmit"});
+    const [error, setError] = useState(false);
+
+    const {register, handleSubmit, watch, reset, resetField, formState: {errors}} = useForm({reValidateMode: "onSubmit", });
+
+    const [profile, setProfile] = useState({});
+
 
     const onSubmit = async (data) => {
-        console.log(data);
         try {
             setUsername(data.username);
-            console.log(errors);
         } catch (error) {
+            console.error(error);
+            setError(true);
 
         }
+        reset({})
+        reset({username:''});
+        setError(false);
 
     };
 
-    console.log(watch("username"))
+
+    useEffect(() => {
+
+        (async () => {
+            try {
+                const currentProfile = await getProfile({username, setError});
+                setProfile(currentProfile);
+            } catch (error) {
+                console.error(error);
+                setError(true);
+
+            }
+
+        })().catch((error) => {
+            console.error(error);
+            setError(true);
+
+        })
+
+    }, [username])
+
+
     return (<>
+
             <Row className="search-box rounded">
                 <Col>
                     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -51,13 +82,11 @@ const Search = () => {
                 </Col>
 
             </Row>
-            <SearchResults username={username}/>
+
+            <SearchResults username={username} error={error} profile={profile}/>
         </>
 
-
     )
-
-
 }
 
 export default Search;

@@ -3,13 +3,15 @@ import format from 'date-fns/format'
 import {parseISO} from "date-fns";
 
 
-export const getProfile = async (username) => {
+export const getProfile = async (props) => {
     const baseURL = "https://api.github.com/users/";
+    const {username, setError} = props;
 
     try {
-        const {data} = await axios.get(`${baseURL}${username}`);
-        console.log(data);
-
+        const {data} = await axios.get(`${baseURL}${username}`)
+            .catch((error) => {
+                console.error(error);
+            });
         const twitterURL = `https://twitter.com/${data.twitter_username}`;
         const stringDate = format(parseISO(data.created_at), ['d MMM yyyy']);
 
@@ -34,6 +36,6 @@ export const getProfile = async (username) => {
         };
     } catch (error) {
         console.error(error);
-        return Promise.reject(error);
+        setError(true);
     }
 }
