@@ -1,4 +1,4 @@
-import {Col, Row, Stack} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import {useEffect, useState} from "react";
 import {getProfile} from "../api/API";
 import Image from 'react-bootstrap/Image'
@@ -6,31 +6,36 @@ import {ReactComponent as TwitterIcon} from '../assets/icon-twitter.svg';
 import {ReactComponent as CompanyIcon} from '../assets/icon-company.svg';
 import {ReactComponent as LocationIcon} from '../assets/icon-location.svg';
 import {ReactComponent as WebsiteIcon} from '../assets/icon-website.svg';
+import {useErrorHandler} from 'react-error-boundary'
 
 
-const SearchResults = () => {
+const SearchResults = (props) => {
 
-    const [username, setUsername] = useState("norafergany");
+    const {username} = props;
 
     const [profile, setProfile] = useState({});
 
-    const [loading, setLoading] = useState();
-
     const defaultUsername = username;
 
+    const handleError = useErrorHandler();
 
     useEffect(() => {
 
         (async () => {
-           const currentProfile =  await getProfile(username);
-           setProfile(currentProfile);
+            try {
+                const currentProfile = await getProfile(username);
+                setProfile(currentProfile);
+            } catch (error) {
+                handleError(error);
+
+            }
+
         })()
 
     }, [username])
 
 
     return (<>
-
             <Row className="search-results py-5 my-3 rounded ">
                 <Col xs={3} className="d-flex justify-content-center">
                     <Image className="avatar" src={profile.avatar_url} alt="avatar" roundedCircle fluid/>
@@ -40,7 +45,8 @@ const SearchResults = () => {
                     <Row className=" mx-2">
                         <Col className="">
                             <div><h1>{profile.name}</h1></div>
-                            <div><a target="_blank" rel="noreferrer"  href={profile.githubURL}>{`@${defaultUsername}`}</a></div>
+                            <div><a target="_blank" rel="noreferrer"
+                                    href={profile.githubURL}>{`@${defaultUsername}`}</a></div>
                         </Col>
                         <Col className="col-auto">
                             {profile.stringDate ? `Joined ${profile.stringDate}` : ""}
@@ -83,20 +89,20 @@ const SearchResults = () => {
                             </div>
                             <div data-testid="blog">
                                 <WebsiteIcon/>
-                                {profile.blog ? <a  rel="noreferrer" target="_blank" href={profile.blog}>{profile.blog}</a>
-                                    : "Not Available"}
+                                {profile.blog ? <a rel="noreferrer" target="_blank"
+                                                   href={profile.blog}>{profile.blog}</a> : "Not Available"}
                             </div>
                         </Col>
                         <Col>
                             <div>
                                 <TwitterIcon/>
-                                {profile.twitter_username ?
-                                    <a target="_blank"  rel="noreferrer" href={profile.twitterURL}>{profile.twitter_username}</a> : "Not Available"}
+                                {profile.twitter_username ? <a target="_blank" rel="noreferrer"
+                                                               href={profile.twitterURL}>{profile.twitter_username}</a> : "Not Available"}
                             </div>
                             <div>
                                 <CompanyIcon/>
-                                {profile.company ?
-                                    <a target="_blank" rel="noreferrer"  href={profile.companyURL}>{profile.company}</a> : "Not Available"}
+                                {profile.company ? <a target="_blank" rel="noreferrer"
+                                                      href={profile.companyURL}>{profile.company}</a> : "Not Available"}
                             </div>
                         </Col>
                     </Row>

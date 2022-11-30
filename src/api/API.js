@@ -33,7 +33,7 @@ export const getProfile = async (username) => {
             stringDate: stringDate,
         };
     } catch (error) {
-        // TODO catch the error here
         console.error(error);
+        return Promise.reject(error);
     }
 }
