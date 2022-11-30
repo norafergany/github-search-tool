@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Space Mono', sans-serif;
+  font-family: 'Space Mono', monospace;
   background: #F6F8FF;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,20 +12,24 @@ code {
 }
 
 @font-face {
-  font-family: 'Space Mono', sans-serif;
-  src: local('Space Mono'), url(./fonts/SpaceMono-Regular.ttf) format('truetype');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
+  font-family: 'Space Mono', monospace;
+  src: local(''), url(./fonts/SpaceMono-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
 }
 
 @font-face {
-  font-family: 'Space Mono Bold', sans-serif;
-  src: local('Space Mono'), url(./fonts/SpaceMono-Bold.ttf) format('truetype');
-  font-weight: bold;
+  font-family: 'Space Mono Bold';
+  src: local(''), url(./fonts/SpaceMono-Bold.ttf) format('truetype');
+  font-weight: 700;
+  font-style: normal;
 }
 
 
-
+h1 {
+  font-family: 'Space Mono Bold', monospace;
+}
 .dark-mode-button {
   border:none;
   background:#F6F8FF;
@@ -56,3 +60,9 @@ code {
   background: #FEFEFE;
 
 }
+
+.avatar {
+  /*border-radius:15rem;*/
+  max-width: 10rem;
+}
+
