@@ -1,9 +1,11 @@
 import {Navbar} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import {ReactComponent as DarkMode} from '../assets/icon-moon.svg';
+import ToggleTheme from "./ToggleTheme";
 
 
-const Navigation = () => {
+const Navigation = (props) => {
+
+    const {theme, handleClick} = props;
 
 
     return (
@@ -11,16 +13,10 @@ const Navigation = () => {
             <Navbar expand="lg" className="my-3">
                 <Container fluid>
                     <Navbar.Brand href=".">
-                        <span className="devfinder-brand">devfinder</span>
+                        <span
+                            className={`h1 devfinder-brand ${theme === 'light' ? "link-dark" : "link-light"}`}>devfinder</span>
                     </Navbar.Brand>
-
-                    <span className="navbar-text">
-                        <button className="dark-mode-button ">
-                            <span className="ms-auto me-3">LIGHT</span>
-                            <DarkMode/>
-                        </button>
-                    </span>
-
+                    <ToggleTheme theme={theme} toggleTheme={handleClick}/>
 
                 </Container>
 

@@ -1,68 +1,14 @@
-body {
-  margin: 0;
-  font-family: 'Space Mono', monospace;
-  background: #F6F8FF;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 @font-face {
-  font-family: 'Space Mono', monospace;
-  src: local(''), url(./fonts/SpaceMono-Regular.ttf) format('truetype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Space Mono', monospace;
+    src: local(''), url(./fonts/SpaceMono-Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
 
 }
 
 @font-face {
-  font-family: 'Space Mono Bold';
-  src: local(''), url(./fonts/SpaceMono-Bold.ttf) format('truetype');
-  font-weight: 700;
-  font-style: normal;
+    font-family: 'Space Mono Bold';
+    src: local(''), url(./fonts/SpaceMono-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal;
 }
-
-
-h1 {
-  font-family: 'Space Mono Bold', monospace;
-}
-.dark-mode-button {
-  border:none;
-  background:#F6F8FF;
-  color:#697C9A;
-}
-
-.dark-mode-button:hover {
-  border:none;
-  background:#F6F8FF;
-  color:#141D2F;
-}
-
-
-.devfinder-brand {
-  font-family: 'Space Mono Bold', sans-serif;
-}
-
-/*.base-container {*/
-/*  background-color: #F6F8FF;*/
-/*}*/
-
-.search-results {
-  background: #FEFEFE;
-
-}
-
-.search-box {
-  background: #FEFEFE;
-
-}
-
-.avatar {
-  /*border-radius:15rem;*/
-  max-width: 10rem;
-}
-
