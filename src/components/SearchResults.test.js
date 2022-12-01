@@ -1,5 +1,5 @@
 import {
-    cleanup, render, screen,
+    render, screen,
 } from "@testing-library/react";
 
 import SearchResults from "./SearchResults";

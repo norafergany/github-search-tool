@@ -10,8 +10,6 @@ const SearchResults = (props) => {
 
     const {profile, username, error} = props;
 
-    console.log(profile);
-
     if (error) {
         return (
             <p>No results, try again</p>

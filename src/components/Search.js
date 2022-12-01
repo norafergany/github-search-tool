@@ -1,12 +1,12 @@
+import {useEffect, useState} from "react";
+import {useForm} from "react-hook-form";
 import {Col, Row} from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import {useForm} from "react-hook-form";
 import SearchResults from "./SearchResults";
-import {useEffect, useState} from "react";
-import {ReactComponent as SearchIcon} from '../assets/icon-search.svg';
 import {getProfile} from "../api/API";
+import {ReactComponent as SearchIcon} from '../assets/icon-search.svg';
 
 
 const Search = () => {
@@ -14,7 +14,7 @@ const Search = () => {
 
     const [error, setError] = useState(false);
 
-    const {register, handleSubmit, watch, reset, resetField, formState: {errors}} = useForm({reValidateMode: "onSubmit", });
+    const {register, handleSubmit, reset, formState: {errors}} = useForm({reValidateMode: "onSubmit", });
 
     const [profile, setProfile] = useState({});
 
@@ -23,7 +23,7 @@ const Search = () => {
         try {
             setUsername(data.username);
         } catch (error) {
-            console.error(error);
+            // Send to logging service in production
             setError(true);
 
         }
@@ -41,13 +41,13 @@ const Search = () => {
                 const currentProfile = await getProfile({username, setError});
                 setProfile(currentProfile);
             } catch (error) {
-                console.error(error);
+                // Send to logging service in production
                 setError(true);
 
             }
 
         })().catch((error) => {
-            console.error(error);
+            // Send to logging service in production
             setError(true);
 
         })
@@ -65,16 +65,16 @@ const Search = () => {
                             <InputGroup className="mb-3">
                                 <InputGroup.Text id="basic-addon1"><SearchIcon/></InputGroup.Text>
 
-                                <Form.Control type="text"
-                                              placeholder="Search Github username..." {...register("username", {
+                                <Form.Control role="search" name="username" type="text"
+                                               placeholder="Search Github username..." {...register("username", {
                                     required: true, maxLength: 39, pattern: /^[A-Za-z-0-9]+$/i
                                 })}/>
-                                <Button variant="primary" type="submit">
+                                <Button variant="primary" type="submit" name="search">
                                     Search
                                 </Button>
                             </InputGroup>
                             {errors.username &&
-                                <p>Github usernames can only contain hyphens and alphanumeric characters</p>}
+                                <div role="alert">Github usernames can only contain hyphens and alphanumeric characters</div>}
 
                         </Form.Group>
 

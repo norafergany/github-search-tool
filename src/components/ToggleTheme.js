@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components"
 import {ReactComponent as DarkMode} from "../assets/icon-moon.svg";
-import Button from "react-bootstrap/Button";
 import {ReactComponent as LightMode} from "../assets/icon-sun.svg";
 
 const StyledButton = styled.button`
@@ -10,7 +9,6 @@ const StyledButton = styled.button`
   border: none;
   cursor: pointer;
   font-size: 1rem;
-
 `;
 
 

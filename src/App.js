@@ -1,4 +1,3 @@
-import './App.css';
 import Container from 'react-bootstrap/Container';
 import Navigation from "./components/Navigation";
 import Search from "./components/Search";
@@ -20,8 +19,7 @@ function App() {
 
     useEffect(() => {
         function getInitialTheme() {
-            const storedTheme = localStorage.getItem('theme') === 'dark' || window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-            return storedTheme;
+            return localStorage.getItem('theme') === 'dark' || window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         }
         const initialTheme = getInitialTheme();
         setTheme(initialTheme);

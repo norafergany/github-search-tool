@@ -10,11 +10,9 @@ export const getProfile = async (props) => {
     try {
         const {data} = await axios.get(`${baseURL}${username}`)
             .catch((error) => {
-                console.error(error);
+                // Send to logging service in production
+                setError(true);
             });
-        const twitterURL = `https://twitter.com/${data.twitter_username}`;
-        const stringDate = format(parseISO(data.created_at), ['d MMM yyyy']);
-
 
         return {
             avatar_url: data.avatar_url,
@@ -31,11 +29,11 @@ export const getProfile = async (props) => {
             created_at: data.created_at,
             githubURL: `https://github.com/${username}`,
             companyURL: `https://github.com/${data.company}`.replace("@", ""),
-            twitterURL: twitterURL,
-            stringDate: stringDate,
+            twitterURL: `https://twitter.com/${data.twitter_username}`,
+            stringDate: format(parseISO(data.created_at), ['d MMM yyyy']),
         };
     } catch (error) {
-        console.error(error);
+        // Send to logging service in production
         setError(true);
     }
 }
