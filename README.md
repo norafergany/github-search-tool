@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# GitHub User Search Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Run the app (Development Mode)
+1. ```git clone```
+2. ```npm install```
+3. ```npm start```
 
-## Available Scripts
+## Run Tests
+```npm test```
 
-In the project directory, you can run:
+## Libraries, Frameworks, & Tools
+- [Create React App](https://create-react-app.dev/)
+- [React-Bootstrap](https://react-bootstrap.github.io/)
+- [Styled-Components](https://styled-components.com/)
+- [Axios](https://axios-http.com/)
+- [React-Form-Hooks](https://react-hook-form.com/)
+- [React-Resting-Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [date-fns](https://date-fns.org/)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Implementation Process
+- Create a grid layout
+- Render a component ```SearchResults``` that displays the default user's GitHub profile
+- Write a test for the ```SearchResults``` component
+- Implement a search form component ```Search``` that allows users to search for a GitHub profile, and validates user input according to GitHub username rules (max length of 39 characters, alphanumeric characters and hyphens only)
+- Implement Dark Mode
+- Refactor - Lift State Up: isolate state management and data processing logic to a parent component (```Search```)
+- Update tests to reflect refactoring
+- Clean-up code (use inline variables, remove unused variables and imports, remove log statements)
+- Enhance `Search` component: remove typos and improve form validation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Decisions & TradeOffs
+I spent time setting up a (relatively) responsive, accessible user interface. User friction inhibits user adoption and engagement, and a majority of web traffic comes from mobile devices.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Libraries & Tools
+- Axios: has convenient features out of the box (e.g. automatic data transformation, fuller browser compatibility, HTTP interceptors) and produces clean code
+- React-Bootstrap:
+    - Applies Bootstrap functionality to the virtual DOM (instead of jQuery directly manipulating the DOM)
+    - Uses React components that are easier to read and style given a React application
+- Styled-Components:
+    - Co-locating CSS and JS produces code that is easier to maintain
+    - Use conditional logic to style components at render time
+- React-Form-Hooks: seamless way to implement forms with built-in validation
+- React Function Components: produce code that is more declarative, easier to read and maintain
+- date-fns: a more performant date library (e.g. compared to Moment)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Improvements
+### Design
+- Improve the layout/responsive
+    - the avatar image is slightly distorted
+    - profile data isn't laid out correctly
+    - content is not evenly spaced on mobile devices
+- Add hover properties and transparency to GitHub profile data, placeholder content, and icons where required
+- Display the error message inside the search bar, instead of underneath it
+- Cleanup the grid layout of search results
+- Eliminate the content flash that occurs after a search for a user that doesn't exist
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Code
+- Use a single strategy to define CSS styles (currently declared via a mix of styled components, pure CSS, and React-Bootstrap)
+- Improve search coverage: Write tests that isolate each component, cover more cases, evaluate user interaction rather than code implementation, and serve as documentation
+- Learn TypeScript (to leverage its enhanced features like static typing, etc)
+- Set a timeout to limit the time we wait for an API response
+- Improve search coverage - add detailed tests so that tests serve as documentation for the app
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Better search validation: GitHub usernames cannot start with hyphens and cannot contain consecutive hyphens. Currently, the form only checks that the username contains only alphanumeric characters and hyphens, with a max of 39 letters (per GitHub username rules)
+- Update the URL with the query parameters to facilitate link sharing
+- Implement a button in the search bar to clear input
+- Improve error handling: display unique messages for different errors (eg. "API rate limit" vs "No results")
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
