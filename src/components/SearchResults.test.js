@@ -2,7 +2,6 @@ import {
     cleanup, render, screen,
 } from "@testing-library/react";
 
-import * as api from "../api/API.js";
 import SearchResults from "./SearchResults";
 import {act} from "react-dom/test-utils";
 
