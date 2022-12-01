@@ -47,7 +47,7 @@ I spent time setting up a (relatively) responsive, accessible user interface. Us
 
 
 ## Improvements
-### Design
+### Design & UX
 - Improve the layout/responsive
     - the avatar image is slightly distorted
     - profile data isn't laid out correctly
@@ -56,6 +56,7 @@ I spent time setting up a (relatively) responsive, accessible user interface. Us
 - Display the error message inside the search bar, instead of underneath it
 - Cleanup the grid layout of search results
 - Eliminate the content flash that occurs after a search for a user that doesn't exist
+- Eliminate the flash when the page first renders in Dark Mode (use CSS variables to set colors before JS loads)
 
 
 ### Code
