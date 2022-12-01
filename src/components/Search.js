@@ -14,7 +14,7 @@ const Search = () => {
 
     const [error, setError] = useState(false);
 
-    const {register, handleSubmit, reset, formState: {errors}} = useForm({reValidateMode: "onSubmit", });
+    const {register, handleSubmit, reset, formState: {errors}} = useForm({reValidateMode: "onChange", });
 
     const [profile, setProfile] = useState({});
 
