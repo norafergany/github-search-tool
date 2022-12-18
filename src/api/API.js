@@ -8,11 +8,12 @@ export const getProfile = async (props) => {
     const {username, setError} = props;
 
     try {
-        const {data} = await axios.get(`${baseURL}${username}`)
-            .catch((error) => {
-                // Send to logging service in production
-                setError(true);
-            });
+        const {data} = await axios.get(`${baseURL}${username}`, {
+            auth: {
+                username: "norafergany",
+                password: "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"
+            }
+        })
 
         return {
             avatar_url: data.avatar_url,
@@ -35,5 +36,6 @@ export const getProfile = async (props) => {
     } catch (error) {
         // Send to logging service in production
         setError(true);
+        console.log("An error occurred");
     }
 }

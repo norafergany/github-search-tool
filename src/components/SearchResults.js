@@ -11,7 +11,6 @@ const SearchResults = (props) => {
     const {profile, username, error} = props;
 
     return (<>
-            {error && <p>No results, try again</p>}
             {!error &&
                 <Row className="search-results py-5 my-3 rounded ">
 

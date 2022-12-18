@@ -57,4 +57,13 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 
+  #error-message {
+    background-color: #fff;
+    border:none;
+  }
+  
+  .search-input {
+    border:none;
+  }
+
 `

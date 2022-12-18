@@ -14,45 +14,35 @@ const Search = () => {
 
     const [error, setError] = useState(false);
 
-    const {register, handleSubmit, reset, formState: {errors}} = useForm({reValidateMode: "onChange", });
+    const {register, handleSubmit, reset, formState: {errors, isDirty}} = useForm({reValidateMode: "onChange", defaultValues: { username: "norafergany" }}, );
 
     const [profile, setProfile] = useState({});
 
-
     const onSubmit = async (data) => {
         try {
+            setError(false);
             setUsername(data.username);
         } catch (error) {
             // Send to logging service in production
+            console.log('test');
+
             setError(true);
 
         }
         reset({})
-        reset({username:''});
-        setError(false);
-
     };
 
 
     useEffect(() => {
 
         (async () => {
-            try {
-                const currentProfile = await getProfile({username, setError});
-                setProfile(currentProfile);
-            } catch (error) {
-                // Send to logging service in production
-                setError(true);
+            const currentProfile = await getProfile({username, setError});
+            setProfile(currentProfile);
 
-            }
-
-        })().catch((error) => {
-            // Send to logging service in production
-            setError(true);
-
-        })
+        })()
 
     }, [username])
+
 
 
     return (<>
@@ -65,16 +55,19 @@ const Search = () => {
                             <InputGroup className="mb-3">
                                 <InputGroup.Text id="basic-addon1"><SearchIcon/></InputGroup.Text>
 
-                                <Form.Control role="search" name="username" type="text"
-                                               placeholder="Search Github username..." {...register("username", {
-                                    required: true, maxLength: 39, pattern: /^[A-Za-z-0-9]+$/i
-                                })}/>
+                                <Form.Control  className="search-input" role="search" name="username" type="text"
+                                              placeholder="Search Github username..." {...register("username", {
+                                    required: true, maxLength: 39, pattern: {value:/^[A-Za-z-0-9]+$/i, message:"Github usernames contain only alpha numeric characters"},
+                                })}
+                                />
+                                <InputGroup.Text id="error-message">{(error && !isDirty) ? "No results..." : ""}</InputGroup.Text>
                                 <Button variant="primary" type="submit" name="search">
                                     Search
                                 </Button>
                             </InputGroup>
-                            {errors.username &&
-                                <div role="alert">Github usernames can only contain hyphens and alphanumeric characters</div>}
+                            {errors.username && errors.username.type === "pattern" &&
+                                <div role="alert">{errors.username.message}</div>
+                            }
 
                         </Form.Group>
 
