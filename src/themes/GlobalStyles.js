@@ -60,10 +60,19 @@ export const GlobalStyles = createGlobalStyle`
   #error-message {
     background-color: #fff;
     border:none;
+    color:red;
   }
   
   .search-input {
     border:none;
+  }
+  
+  #disable-search {
+    opacity: 50%;
+  }
+  
+  .search-button {
+    background-color: #0079FF;
   }
 
 `

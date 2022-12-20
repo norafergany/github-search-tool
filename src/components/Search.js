@@ -24,8 +24,6 @@ const Search = () => {
             setUsername(data.username);
         } catch (error) {
             // Send to logging service in production
-            console.log('test');
-
             setError(true);
 
         }
@@ -60,8 +58,8 @@ const Search = () => {
                                     required: true, maxLength: 39, pattern: {value:/^[A-Za-z-0-9]+$/i, message:"Github usernames contain only alpha numeric characters"},
                                 })}
                                 />
-                                <InputGroup.Text id="error-message">{(error && !isDirty) ? "No results..." : ""}</InputGroup.Text>
-                                <Button variant="primary" type="submit" name="search">
+                                <InputGroup.Text id="error-message">{(error && !isDirty) ? "No results" : ""}</InputGroup.Text>
+                                <Button variant="primary" type="submit" name="search" className="search-button" id={(error && !isDirty) ? "disable-search" : "enable-search"}>
                                     Search
                                 </Button>
                             </InputGroup>
