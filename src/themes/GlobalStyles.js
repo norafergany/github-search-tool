@@ -46,6 +46,12 @@ export const GlobalStyles = createGlobalStyle`
 
   }
 
+  .stats {
+    background-color: ${({theme}) => theme.highlightBackground};
+
+
+  }
+
 
   .devfinder-brand {
     font-family: 'Space Mono Bold', sans-serif;
@@ -53,7 +59,21 @@ export const GlobalStyles = createGlobalStyle`
 
 
   .avatar {
-    max-width: 10rem;
+    max-width: 70%;
+    height: auto;
+    //max-width: 5em;
+    //width: 7em;
+    //height:7em;
+    //max-height: 7em;
+    //max-width:7em;
+    //width: 7em; 
+    //height: 7em; 
+    //top: 0; 
+    //left: 0;
+    //width: 100%; 
+    //height: 100%;
+    //object-fit: cover;
+    //height:60%;
   }
 
 
@@ -74,5 +94,7 @@ export const GlobalStyles = createGlobalStyle`
   .search-button {
     background-color: #0079FF;
   }
+  
+
 
 `
